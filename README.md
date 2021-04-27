@@ -5,7 +5,7 @@
  1. 安装包文件
 
 	``` bash
-	$ composer require harriescc/kdniao
+	$ composer require sobyte/kdniao
 	```
 
 ## 配置
@@ -21,14 +21,14 @@
 1. 获取快递公司列表
 
     ```php
-       Harries\KDNiao\KDNiao::expresses();
+       Sobyte\KDNiao\KDNiao::expresses();
     ```
 
 2. 根据快递公司编码反查快递公司
 
     ```php
        $code = 'SF';
-       Harries\KDNiao\KDNiao::getExpressByCode($code);
+       Sobyte\KDNiao\KDNiao::getExpressByCode($code);
     ```
 
 3. 订阅物流信息
@@ -37,7 +37,7 @@
        $orderSn = '业务订单号';
        $expressCode = '物流公司编码';
        $orderSn = '物流单号';
-       Harries\KDNiao\KDNiao::subExpressInfo($orderSn, $expressCode, $expressSn);
+       Sobyte\KDNiao\KDNiao::subExpressInfo($orderSn, $expressCode, $expressSn);
     ```
     
     订阅结果字段：
@@ -55,7 +55,7 @@
        $orderSn = '业务订单号';
        $expressCode = '物流公司编码';
        $orderSn = '物流单号';
-       Harries\KDNiao\KDNiao::queryExpressInfo($orderSn, $expressCode, $expressSn);
+       Sobyte\KDNiao\KDNiao::queryExpressInfo($orderSn, $expressCode, $expressSn);
     ```
     
     查询结果字段：
