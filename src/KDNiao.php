@@ -8,8 +8,8 @@ namespace Sobyte\KDNiao;
  */
 class KDNiao
 {
-    protected $app_id; //商户id
-    protected $app_key;
+    protected $appId; //商户id
+    protected $appKey;
     protected $queryUrl;
     protected $subUrl;
     protected $orderUrl;
@@ -28,7 +28,7 @@ class KDNiao
     {
         $this->appId = $app_id;
         $this->appKey = $app_key;
-        $this->queryUrl = 'http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx';
+        $this->queryUrl = 'https://api.kdniao.com/Ebusiness/EbusinessOrderHandle.aspx';
         if ($production) {
             $this->subUrl = 'http://api.kdniao.cc/api/dist';
             $this->orderUrl = 'http://api.kdniao.com/api/Eorderservice';
@@ -47,7 +47,7 @@ class KDNiao
     public function expresses()
     {
         $expresses = '[{"code": "AJ","name": "安捷快递"},{"code": "A`MAZON","name": "亚马逊物流"},{"code": "ANE","name": "安能物流"},{"code": "AXD","name": "安信达快递"},{"code": "AYCA","name": "澳邮专线"},{"code": "BFDF","name": "百福东方"},{"code": "BQXHM","name": "北青小红帽"},{"code": "BTWL","name": "百世快运"},{"code": "CCES","name": "CCES快递"},{"code": "CDSTKY","name": "成都善途速运"},{"code": "CITY100","name": "城市100"},{"code": "CJKD","name": "城际快递"},{"code": "CNPEX","name": "CNPEX中邮快递"},{"code": "COE","name": "COE东方快递"},{"code": "CSCY","name": "长沙创一"},{"code": "DBL","name": "德邦"},{"code": "DSWL","name": "D速物流"},{"code": "DTWL","name": "大田物流"},{"code": "EMS","name": "EMS"},{"code": "FAST","name": "快捷速递"},{"code": "FEDEX","name": "FEDEX联邦(国内件）"},{"code": "FEDEX_GJ","name": "FEDEX联邦(国际件）"},{"code": "FKD","name": "飞康达"},{"code": "GDEMS","name": "广东邮政"},{"code": "GSD","name": "共速达"},{"code": "GTO","name": "国通快递"},{"code": "GTSD","name": "高铁速递"},{"code": "HFWL","name": "汇丰物流"},{"code": "HHTT","name": "天天快递"},{"code": "HLWL","name": "恒路物流"},{"code": "HOAU","name": "天地华宇"},{"code": "HOTSCM","name": "鸿桥供应链"},{"code": "HPTEX","name": "海派通物流公司"},{"code": "hq568","name": "华强物流"},{"code": "HTKY","name": "百世快递"},{"code": "HXLWL","name": "华夏龙物流"},{"code": "HYLSD","name": "好来运快递"},{"code": "JGSD","name": "京广速递"},{"code": "JIUYE","name": "九曳供应链"},{"code": "JJKY","name": "佳吉快运"},{"code": "JLDT","name": "嘉里物流"},{"code": "JTKD","name": "捷特快递"},{"code": "JXD","name": "急先达"},{"code": "JYKD","name": "晋越快递"},{"code": "JYM","name": "加运美"},{"code": "JYWL","name": "佳怡物流"},{"code": "KYWL","name": "跨越物流"},{"code": "LB","name": "龙邦快递"},{"code": "LHT","name": "联昊通速递"},{"code": "MHKD","name": "民航快递"},{"code": "MLWL","name": "明亮物流"},{"code": "NEDA","name": "能达速递"},{"code": "PADTF","name": "平安达腾飞快递"},{"code": "PANEX","name": "泛捷快递"},{"code": "PCA","name": "PCA Express"},{"code": "QCKD","name": "全晨快递"},{"code": "QFKD","name": "全峰快递"},{"code": "QRT","name": "全日通快递"},{"code": "QUICK","name": "快客快递"},{"code": "RFD","name": "如风达"},{"code": "RFEX","name": "瑞丰速递"},{"code": "SAD","name": "赛澳递"},{"code": "SAWL","name": "圣安物流"},{"code": "SBWL","name": "盛邦物流"},{"code": "SDWL","name": "上大物流"},{"code": "SF","name": "顺丰快递"},{"code": "SFWL","name": "盛丰物流"},{"code": "SHWL","name": "盛辉物流"},{"code": "ST","name": "速通物流"},{"code": "STO","name": "申通快递"},{"code": "STWL","name": "速腾快递"},{"code": "SUBIDA","name": "速必达物流"},{"code": "SURE","name": "速尔快递"},{"code": "TSSTO","name": "唐山申通"},{"code": "UAPEX","name": "全一快递"},{"code": "UC","name": "优速快递"},{"code": "UEQ","name": "UEQ Express"},{"code": "WJWL","name": "万家物流"},{"code": "WXWL","name": "万象物流"},{"code": "XBWL","name": "新邦物流"},{"code": "XFEX","name": "信丰快递"},{"code": "XJ","name": "新杰物流"},{"code": "XYT","name": "希优特"},{"code": "YADEX","name": "源安达快递"},{"code": "YCWL","name": "远成物流"},{"code": "YD","name": "韵达快递"},{"code": "YDH","name": "义达国际物流"},{"code": "YFEX","name": "越丰物流"},{"code": "YFHEX","name": "原飞航物流"},{"code": "YFSD","name": "亚风快递"},{"code": "YTKD","name": "运通快递"},{"code": "YTO","name": "圆通速递"},{"code": "YXKD","name": "亿翔快递"},{"code": "YZPY","name": "邮政平邮/小包"},{"code": "ZENY","name": "增益快递"},{"code": "ZHQKD","name": "汇强快递"},{"code": "ZJS","name": "宅急送"},{"code": "ZTE","name": "众通快递"},{"code": "ZTKY","name": "中铁快运"},{"code": "ZTO","name": "中通速递"},{"code": "ZTWL","name": "中铁物流"},{"code": "ZYWL","name": "中邮物流"}]';
-        return json_decode($expresses, true);
+        return $expresses;
     }
 
     /**
@@ -67,18 +67,16 @@ class KDNiao
 
         $requestData = json_encode($requestData, JSON_UNESCAPED_UNICODE);
 
-        $config = $this->loadConfig($production);
-
         $data = array(
             'EBusinessID' => $this->appId,
             'RequestType' => '1002',
             'RequestData' => urlencode($requestData),
             'DataType' => '2',
         );
-        $data['DataSign'] = $this->encrypt($requestData, $this->apiKey);
+        $data['DataSign'] = $this->encrypt($requestData, $this->appKey);
         $result = $this->request($this->queryUrl, $data);
 
-        return json_decode($result, true);
+        return $result;
     }
 
 
@@ -90,7 +88,6 @@ class KDNiao
      */
     public function submitEOrder($requestData, $production = true)
     {
-        $config = $this->loadConfig($production);
 
         $data = array(
             'EBusinessID' => $this->appId,
@@ -98,10 +95,10 @@ class KDNiao
             'RequestData' => urlencode($requestData),
             'DataType' => '2',
         );
-        $data['DataSign'] = $this->encrypt($requestData, $this->apiKey);
+        $data['DataSign'] = $this->encrypt($requestData, $this->appKey);
         $result = $this->request($this->orderUrl, $data);
 
-        return json_decode($result, true);
+        return $result;
     }
 
 
@@ -128,9 +125,8 @@ class KDNiao
     public function getExpressByLogisticCode($code)
     {
 
-        $config = $this->loadConfig();
         $requestData = [
-            'LogisticCode' => $expressSn,
+            'LogisticCode' => $code,
         ];
         $requestData = json_encode($requestData);
 
@@ -139,10 +135,14 @@ class KDNiao
             'RequestType' => '2002',
             'RequestData' => urlencode($requestData),
             'DataType' => '2',
-            'DataSign' => $this->encrypt($requestData, $this->apiKey)
+            'DataSign' => $this->encrypt($requestData, $this->appKey)
         );
-        $return = json_decode($this->request($this->subUrl, $data), true);
-        return $return;
+        $result = $this->request($this->queryUrl, $data);
+        if ($result['Success'] == true && isset($result['Shippers'])) {
+            return $result['Shippers'];
+        } else {
+            return false;
+        }
     }
     /**
      * 订阅快递物流信息
@@ -154,7 +154,6 @@ class KDNiao
      */
     public function subExpressInfo($orderSn, $expressCode, $expressSn)
     {
-        $config = $this->loadConfig();
         $requestData = [
             'OrderCode' => $orderSn,
             'ShipperCode' => $expressCode,
@@ -167,9 +166,9 @@ class KDNiao
             'RequestType' => '1008',
             'RequestData' => urlencode($requestData),
             'DataType' => '2',
-            'DataSign' => $this->encrypt($requestData, $this->apiKey)
+            'DataSign' => $this->encrypt($requestData, $this->appKey)
         );
-        $return = json_decode($this->request($this->subUrl, $data), true);
+        $return = $this->request($this->subUrl, $data);
         return $return;
     }
 
@@ -183,7 +182,6 @@ class KDNiao
      */
     public function queryExpressInfo($orderSn, $expressCode, $expressSn)
     {
-        $config = $this->loadConfig();
         $requestData = [
             'OrderCode' => $orderSn,
             'ShipperCode' => $expressCode,
@@ -195,9 +193,9 @@ class KDNiao
             'RequestType' => '1002',
             'RequestData' => urlencode($requestData),
             'DataType' => '2',
-            'DataSign' => $this->encrypt($requestData, $this->apiKey)
+            'DataSign' => $this->encrypt($requestData, $this->appKey)
         );
-        $return = json_decode($this->request($this->queryUrl, $data), true);
+        $return = $this->request($this->queryUrl, $data);
         return $return;
     }
 
@@ -206,6 +204,7 @@ class KDNiao
      */
     public function request($url, $datas)
     {
+        // dd($url, $datas);
         $temps = array();
         foreach ($datas as $key => $value) {
             $temps[] = sprintf('%s=%s', $key, $value);
@@ -233,18 +232,21 @@ class KDNiao
             $gets .= fread($fd, 128);
         }
         fclose($fd);
-        return $gets;
+        if ($gets) {
+            return json_decode($gets, true);
+        }
+        return false;
     }
 
     /**
      * 电商Sign签名生成
      *
      * @param $data
-     * @param $apiKey
+     * @param $appKey
      * @return string
      */
-    public function encrypt($data, $apiKey)
+    public function encrypt($data, $appKey)
     {
-        return urlencode(base64_encode(md5($data . $apiKey)));
+        return urlencode(base64_encode(md5($data . $appKey)));
     }
 }
